@@ -7,11 +7,11 @@ import { router } from 'expo-router';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Title style={styles.title}>Vocabulary Master</Title>
+      <Title style={styles.title}>WordUp</Title>
       <Card style={styles.card}>
         <Card.Content>
-          <Title>Welcome to Vocabulary Master!</Title>
-          <Paragraph>
+          <Title style={styles.modeCardTitle}>Welcome to WordUp!</Title>
+          <Paragraph style = {styles.modeCardText}>
             Enhance your vocabulary through fun and interactive games.
             Choose from different themes and challenge yourself!
           </Paragraph>
@@ -39,8 +39,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 20,
     fontSize: 24,
+    color: 'black'
   },
   card: {
     marginVertical: 10,
+    backgroundColor: '#09E85E',
+    color: '#000000'
+  },
+  modeCardTitle: {
+    color: '#000000'
+  },
+  modeCardText: {
+    color: '#000000'
   },
 });
