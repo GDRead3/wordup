@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Card, Text } from 'react-native-paper';
+import { Card, Text, Button } from 'react-native-paper';
 import { GameState } from '../../../types/games/hangman';
 import Keyboard from './Keyboard';
 import { baseStyles } from '../../../styles';
@@ -71,6 +71,20 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
             <Text style={baseStyles.subtitle}>Score: {gameState.score}</Text>
           )}
         </View>
+        
+        {/* End Game button for casual mode */}
+        {gameState.mode === 'casual' && (
+          <View style={baseStyles.buttonContainer}>
+            <Button 
+              mode="contained-tonal"
+              onPress={onGameOver}
+              style={baseStyles.button}
+              icon="exit-to-app"
+            >
+              End Game
+            </Button>
+          </View>
+        )}
         
         <View style={baseStyles.wordContainer}>
           <Text style={baseStyles.word}>{displayWord()}</Text>
