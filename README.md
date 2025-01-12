@@ -1,6 +1,9 @@
 # Wordup - Mobile Game App
 
-A React Native mobile game application focused on vocabulary enhancement through various word games. Currently featuring Hangman with multiple game modes, addtional games modes will be added in time.
+A React Native mobile game application focused on vocabulary enhancement through various word games. Currently featuring Hangman with multiple game modes, addtional games modes will be added in time. 
+
+# Motivation
+I want to make a simple but addictive game that inspires curiousity while also offering value to the players. Learning while having fun is the best way to learn!
 
 ## Features
 
@@ -20,27 +23,6 @@ A React Native mobile game application focused on vocabulary enhancement through
 - React Native Paper for UI components
 - Expo Router for navigation
 
-## Project Structure
-
-```
-vocabulary-game/
-├── app/                     # Main app directory (expo-router)
-│   ├── _layout.tsx         # Navigation layout
-│   ├── index.tsx           # Entry redirect
-│   ├── home.tsx            # Home screen
-│   ├── hangman.tsx         # Hangman game screen
-│   └── scores.tsx          # Scores screen
-│
-├── src/
-│   ├── components/         # Reusable components
-│   │   └── games/
-│   │       └── hangman/    # Hangman game components
-│   ├── types/             # TypeScript type definitions
-│   ├── data/              # Game data
-│   ├── constants/         # Constants and configurations
-│   ├── styles/            # Shared styles
-│   └── utils/             # Utility functions
-```
 
 ## Installation
 
