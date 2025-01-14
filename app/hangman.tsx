@@ -17,9 +17,15 @@ export default function PlayHangmanScreen() {
     setSelectedMode(mode);
   };
 
-  const startNewGame = () => {
+  const startNewGame = async () => {
     if (selectedMode) {
-      setGameState(createInitialGameState(selectedMode));
+      try {
+        const initialState = await createInitialGameState(selectedMode);
+        setGameState(initialState);
+      } catch (error) {
+        // Handle error - maybe show an error message to user
+        console.error('Failed to start game:', error);
+      }
     }
   };
 
@@ -54,6 +60,7 @@ export default function PlayHangmanScreen() {
           visible={showGameOver}
           score={gameState?.score ?? 0}
           rounds={gameState?.round ?? 0}
+          word={gameState?.currentWord ?? ''}
           onDismiss={resetGame}
         />
       </Portal>
