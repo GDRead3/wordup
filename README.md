@@ -15,6 +15,16 @@ I want to make a simple but addictive game that inspires curiousity while also o
 - Score tracking system
 - Visual feedback for correct/incorrect guesses
 - On-screen keyboard with guessed letters tracking
+- definitions of words on either level complete or game over
+
+#### Hangman-To Do
+- advance level screen
+- modify quick and marathon mode rules
+- add phonetics and audio to word summary screen
+- add sound effects for letter selection, level completion, etc
+- add animations
+- add score tracker and high score feature
+- build backup offline word database for offline play
 
 ## Technologies Used
 
