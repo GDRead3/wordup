@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Portal } from 'react-native-paper';
-import ModeSelection from '../src/components/games/hangman/ModeSelection';
 import GameBoard from '../src/components/games/hangman/GameBoard';
 import GameOverDialog from '../src/components/games/hangman/GameOver';
+import ModeSelection from '../src/components/games/hangman/ModeSelection';
 import { GameState, GameMode } from '../src/types/games/hangman';
 import { createInitialGameState } from '../src/utils/games/hangman';
 import { baseStyles } from '../src/styles';
@@ -23,7 +23,6 @@ export default function PlayHangmanScreen() {
         const initialState = await createInitialGameState(selectedMode);
         setGameState(initialState);
       } catch (error) {
-        // Handle error - maybe show an error message to user
         console.error('Failed to start game:', error);
       }
     }

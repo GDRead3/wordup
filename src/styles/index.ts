@@ -64,13 +64,21 @@ export const baseStyles = StyleSheet.create({
     marginBottom: 20,
   },
   wordContainer: {
-    alignItems: 'center',
     marginVertical: 20,
+    width: '100%',
+  },
+  wordWrapper: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   word: {
     fontSize: 32,
     letterSpacing: 8,
     fontWeight: 'bold',
+    color: colors.text.primary,
+    includeFontPadding: false,
+    textAlignVertical: 'center',
   },
   keyboardContainer: {
     flexDirection: 'row',
