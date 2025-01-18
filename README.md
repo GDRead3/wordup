@@ -1,13 +1,15 @@
 # Wordup - Mobile Game App
 
-A React Native mobile game application focused on vocabulary enhancement through various word games. Currently featuring Hangman with multiple game modes, addtional games modes will be added in time. 
+A React Native mobile game application focused on vocabulary enhancement through various word games. Currently featuring Hangman with multiple game modes, additional games modes will be added in time.
 
 # Motivation
-I want to make a simple but addictive game that inspires curiousity while also offering value to the players. Learning while having fun is the best way to learn!
+
+I want to make a simple but addictive game that inspires curiosity while also offering value to the players. Learning while having fun is the best way to learn!
 
 ## Features
 
 ### Hangman Game
+
 - Multiple Game Modes:
   - Quick Mode: 10 rounds with 6 lives
   - Marathon Mode: Unlimited rounds with 6 lives
@@ -20,19 +22,21 @@ I want to make a simple but addictive game that inspires curiousity while also o
 ## To do list
 
 ## General
+
 - app colour scheme
-- New unused app name
+- New app name
 - Documentation improvement to code
-- additonal gamemodes frameworks
-    -Synonyms/antonyms game
-    -Spill and spell (try to spell the words as fast as you can from assorment of letters)
-    -guess the definiton
-    -fridge screen (make a sentence from assortment of words)
+- additional game modes frameworks
+  -Synonyms/antonyms game
+  -Spill and spell (try to spell the words as fast as you can from assortment of letters)
+  -guess the definition
+  -fridge screen (make a sentence from assortment of words)
 - high scores and score tracking
 - navigation tab options
 - profile system
 
 #### Hangman-To Do
+
 - fixing word placement
 - modify quick and marathon mode rules
 - add phonetics and audio to word summary screen
@@ -40,7 +44,7 @@ I want to make a simple but addictive game that inspires curiousity while also o
 - add animations
 - add score tracker and high score feature
 - build backup offline word database for offline play
-- modify word generator to sanitize words (innappropriate words, words without definitions, lowering font size for larger words, so it fits on the screen)
+- modify word generator to sanitize words (inappropriate words, words without definitions, lowering font size for larger words so it fits on the screen)
 - add #letters QOL
 - Add point system with shop for upgrades(extra lives, letter erasers, free letter)
 
@@ -51,21 +55,23 @@ I want to make a simple but addictive game that inspires curiousity while also o
 - React Native Paper for UI components
 - Expo Router for navigation
 
-
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone [repository-url]
 cd vocabulary-game
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npx expo start
 ```
@@ -73,22 +79,26 @@ npx expo start
 ## Running the App
 
 To run the app on your device:
+
 1. Install the Expo Go app from the App Store (iOS) or Play Store (Android)
 2. Scan the QR code shown in the terminal after running `npx expo start`
 
 For development using emulators:
+
 - iOS: Press 'i' in the terminal after starting the development server
 - Android: Press 'a' in the terminal after starting the development server
 
 ## Game Modes
 
 ### Quick Mode
+
 - Perfect for short gameplay sessions
 - Limited to 10 rounds
 - 6 lives per game
 - Score tracking enabled
 
 ### Marathon Mode
+
 - Extended gameplay experience
 - Unlimited rounds
 - 6 lives per game
@@ -96,6 +106,7 @@ For development using emulators:
 - Game ends when all lives are lost
 
 ### Casual Mode
+
 - Relaxed gameplay experience
 - Unlimited rounds
 - Unlimited lives
@@ -105,6 +116,7 @@ For development using emulators:
 ## Development
 
 ### Prerequisites
+
 - Node.js (v14 or higher)
 - npm or yarn
 - Expo CLI
