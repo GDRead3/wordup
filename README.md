@@ -25,6 +25,7 @@ I want to make a simple but addictive game that inspires curiousity while also o
 - add animations
 - add score tracker and high score feature
 - build backup offline word database for offline play
+- modify word generator to sanitize words (innappropriate words, words without definitions, lowering font size for larger words, so it fits on the screen)
 
 ## Technologies Used
 
