@@ -18,7 +18,7 @@ I want to make a simple but addictive game that inspires curiousity while also o
 - definitions of words on either level complete or game over
 
 #### Hangman-To Do
-- advance level screen
+- fixing word placement
 - modify quick and marathon mode rules
 - add phonetics and audio to word summary screen
 - add sound effects for letter selection, level completion, etc
