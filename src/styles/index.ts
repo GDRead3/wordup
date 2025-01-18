@@ -63,9 +63,18 @@ export const baseStyles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 20,
   },
+  // area around word
   wordContainer: {
+    alignItems: 'center',
     marginVertical: 20,
     width: '100%',
+    overflow: 'scroll'
+  },
+  // justifies word to center of screen
+  scrollViewContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    minWidth: '100%',  // Ensures the content takes full width
   },
   wordWrapper: {
     flexGrow: 1,
@@ -79,6 +88,7 @@ export const baseStyles = StyleSheet.create({
     color: colors.text.primary,
     includeFontPadding: false,
     textAlignVertical: 'center',
+    flexShrink: 0,
   },
   keyboardContainer: {
     flexDirection: 'row',
@@ -90,4 +100,5 @@ export const baseStyles = StyleSheet.create({
   letterChip: {
     margin: 2,
   }
+
 });

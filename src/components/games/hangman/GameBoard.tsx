@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { View, Dimensions, ScrollView } from 'react-native';
 import { Card, Text, Button } from 'react-native-paper';
 import { GameState } from '../../../types/games/hangman';
 import Keyboard from './Keyboard';
@@ -16,6 +16,19 @@ interface GameBoardProps {
 
 export default function GameBoard({ gameState, setGameState, onGameOver }: GameBoardProps) {
   const [showSuccess, setShowSuccess] = useState(false);
+
+
+  // function to calculate font size of word to prevent word from spil;ling over into a second line
+  const calculateFontSize = () => {
+    const screenWidth = Dimensions.get('window').width;
+    const wordLength = gameState.currentWord.length;
+    const baseSize = 32;
+    
+    if (wordLength > 10) {
+      return Math.max(baseSize * (10 / wordLength), 20); // Minimum font size of 20
+    }
+    return baseSize;
+  };
 
   // Check if the word is complete after each guess
   useEffect(() => {
@@ -131,7 +144,17 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
           )}
           
           <View style={baseStyles.wordContainer}>
-            <Text style={baseStyles.word}>{displayWord()}</Text>
+            <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            >
+            <Text style={[
+              baseStyles.word,
+              { fontSize: calculateFontSize() }
+            ]}>
+              {displayWord()}
+            </Text>
+            </ScrollView>
           </View>
 
           <Keyboard
