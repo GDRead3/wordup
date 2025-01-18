@@ -9,7 +9,7 @@ export interface GameState {
   round: number;
   maxRounds: number | null;
   mode: GameMode | null;
-  definiiton: string[] | null;
+  definition: string[] | null;
 }
 
 export interface ModeOption {

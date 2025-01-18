@@ -17,6 +17,21 @@ I want to make a simple but addictive game that inspires curiousity while also o
 - On-screen keyboard with guessed letters tracking
 - definitions of words on either level complete or game over
 
+## To do list
+
+## General
+- app colour scheme
+- New unused app name
+- Documentation improvement to code
+- additonal gamemodes frameworks
+    -Synonyms/antonyms game
+    -Spill and spell (try to spell the words as fast as you can from assorment of letters)
+    -guess the definiton
+    -fridge screen (make a sentence from assortment of words)
+- high scores and score tracking
+- navigation tab options
+- profile system
+
 #### Hangman-To Do
 - fixing word placement
 - modify quick and marathon mode rules
@@ -26,6 +41,8 @@ I want to make a simple but addictive game that inspires curiousity while also o
 - add score tracker and high score feature
 - build backup offline word database for offline play
 - modify word generator to sanitize words (innappropriate words, words without definitions, lowering font size for larger words, so it fits on the screen)
+- add #letters QOL
+- Add point system with shop for upgrades(extra lives, letter erasers, free letter)
 
 ## Technologies Used
 

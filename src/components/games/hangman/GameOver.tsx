@@ -77,6 +77,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: colors.text.primary,
   },
+  scrollContent: {
+    paddingVertical: 10,
+  },
+  word: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 4,
+    color: colors.text.primary,
+  },
   score: {
     fontSize: 18,
     marginVertical: 4,
@@ -86,5 +95,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginVertical: 4,
     color: colors.text.secondary,
+  },
+  definitionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 16,
+    marginBottom: 8,
+    color: colors.text.primary,
+  },
+  definition: {
+    fontSize: 16,
+    marginVertical: 4,
+    color: colors.text.secondary,
+    lineHeight: 22,
   },
 });
