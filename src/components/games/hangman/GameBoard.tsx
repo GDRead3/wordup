@@ -18,26 +18,37 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
   const [showSuccess, setShowSuccess] = useState(false);
 
 
-  // function to calculate font size of word to prevent word from spil;ling over into a second line
-  const calculateFontSize = () => {
+  // function to calculate font size of word to prevent word from spilling over into a second line
+  const calculateWordDisplay = () => {
     const screenWidth = Dimensions.get('window').width;
     const wordLength = gameState.currentWord.length;
-    const letterspacing = 8;
     const horizontalPadding = 32
-    const baseSize = 32;
 
-    const availableWidth = screenWidth - horizontalPadding; //calculates how much width is availalbe for the word to fit on
-    const spaceneeded = (wordLength * 32) + (wordLength -1) * letterspacing; // calculates space needed for the word
+    let letterSpacing = 6;
+    let fontSize = 32;
     
-    //check to ensure word fits on screen
-    if (spaceneeded > availableWidth) {
-      const scaleFactor = availableWidth / spaceneeded;
-      return Math.max(Math.floor(32 * scaleFactor), 16); //makes font smaller for larger words, 16 is minimum size
-    }
+    const availableWidth = screenWidth - horizontalPadding; //calculates how much width is availalbe for the word to fit on
 
-    return 32;
+    // Calculate space needed with default values
+      let totalWidth = (wordLength * fontSize) + ((wordLength - 1) * letterSpacing);
+
+    // If word is too long, adjust both font size and spacing
+     if (totalWidth > availableWidth) {
+    // First reduce letter spacing for long words
+    letterSpacing = Math.max(2, Math.floor(availableWidth / wordLength / 4));
+    totalWidth = (wordLength * fontSize) + ((wordLength - 1) * letterSpacing);
+    
+    // If still too big, reduce font size
+    if (totalWidth > availableWidth) {
+      fontSize = Math.max(16, Math.floor((availableWidth - (wordLength - 1) * letterSpacing) / wordLength));
+    }
+  }
+
+    return {fontSize, letterSpacing};
 
   };
+
+  const { fontSize, letterSpacing } = calculateWordDisplay();
 
   // Check if the word is complete after each guess
   useEffect(() => {
@@ -62,6 +73,14 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
       const newLives = isInWord ? prev.remainingLives : prev.remainingLives - 1;
       const newScore = isInWord ? prev.score + 10 : prev.score;
 
+    // Check if word is complete after this guess
+    const isWordComplete = [...prev.currentWord].every(char => 
+      newGuessedLetters.has(char)
+    );
+
+    // Recalculate new display settings based on revealed letters
+    const {fontSize, letterSpacing } = calculateWordDisplay();
+
       // Check if the game is lost
       if (newLives <= 0 && prev.mode !== 'casual') {
         setTimeout(onGameOver, 1000);
@@ -70,7 +89,8 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
           guessedLetters: newGuessedLetters,
           remainingLives: newLives,
           score: newScore,
-          gameStatus: 'lost'
+          gameStatus: 'lost',
+          displaySettings: { fontSize, letterSpacing }
         };
       }
 
@@ -79,7 +99,8 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
         guessedLetters: newGuessedLetters,
         remainingLives: newLives,
         score: newScore,
-        gameStatus: 'playing'
+        gameStatus: 'playing',
+        displaySettings: { fontSize, letterSpacing }
       };
     });
   };
@@ -104,7 +125,7 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
           gameStatus: 'playing',
           round: prev.round + 1,
           // Reset lives for marathon mode at the start of each round
-          remainingLives: prev.mode === 'marathon' ? 6 : prev.remainingLives
+          remainingLives: prev.mode === 'marathon' ? 10 : prev.remainingLives
         };
       });
     } catch (error) {
@@ -158,12 +179,15 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.scrollViewContent}
               >
-              <Text style={[
-                baseStyles.word,
-                { fontSize: calculateFontSize() }
-              ]}>
+            <Text style={[
+              baseStyles.word,
+                {
+                  fontSize: gameState.displaySettings?.fontSize ?? calculateWordDisplay().fontSize,
+                  letterSpacing: gameState.displaySettings?.letterSpacing ?? calculateWordDisplay().letterSpacing
+                }
+                ]}>
                 {displayWord()}
-                </Text>
+              </Text>
              </ScrollView>
           </View>
 
@@ -189,6 +213,7 @@ const styles = StyleSheet.create({
   scrollViewContent: {
     flexGrow: 1,
     justifyContent: 'center',
-    minWidth: '100%',
+    alignItems: 'center',
+    width: '100%',
   },
 });

@@ -10,6 +10,10 @@ export interface GameState {
   maxRounds: number | null;
   mode: GameMode | null;
   definition: string[] | null;
+  displaySettings?: {
+    fontSize: number;
+    letterSpacing: number;
+  };
 }
 
 export interface ModeOption {
