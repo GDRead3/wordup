@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Dimensions, ScrollView } from 'react-native';
+import { View, Dimensions, ScrollView, StyleSheet } from 'react-native';
 import { Card, Text, Button } from 'react-native-paper';
 import { GameState } from '../../../types/games/hangman';
 import Keyboard from './Keyboard';
@@ -22,12 +22,21 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
   const calculateFontSize = () => {
     const screenWidth = Dimensions.get('window').width;
     const wordLength = gameState.currentWord.length;
+    const letterspacing = 8;
+    const horizontalPadding = 32
     const baseSize = 32;
+
+    const availableWidth = screenWidth - horizontalPadding; //calculates how much width is availalbe for the word to fit on
+    const spaceneeded = (wordLength * 32) + (wordLength -1) * letterspacing; // calculates space needed for the word
     
-    if (wordLength > 10) {
-      return Math.max(baseSize * (10 / wordLength), 20); // Minimum font size of 20
+    //check to ensure word fits on screen
+    if (spaceneeded > availableWidth) {
+      const scaleFactor = availableWidth / spaceneeded;
+      return Math.max(Math.floor(32 * scaleFactor), 16); //makes font smaller for larger words, 16 is minimum size
     }
-    return baseSize;
+
+    return 32;
+
   };
 
   // Check if the word is complete after each guess
@@ -145,16 +154,17 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
           
           <View style={baseStyles.wordContainer}>
             <ScrollView
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            >
-            <Text style={[
-              baseStyles.word,
-              { fontSize: calculateFontSize() }
-            ]}>
-              {displayWord()}
-            </Text>
-            </ScrollView>
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.scrollViewContent}
+              >
+              <Text style={[
+                baseStyles.word,
+                { fontSize: calculateFontSize() }
+              ]}>
+                {displayWord()}
+                </Text>
+             </ScrollView>
           </View>
 
           <Keyboard
@@ -174,3 +184,11 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  scrollViewContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    minWidth: '100%',
+  },
+});

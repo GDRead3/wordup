@@ -65,10 +65,11 @@ export const baseStyles = StyleSheet.create({
   },
   // area around word
   wordContainer: {
-    alignItems: 'center',
+    justifyContent: 'center',
     marginVertical: 20,
     width: '100%',
-    overflow: 'scroll'
+    flexDirection: 'row',
+    paddingHorizontal: 16,
   },
   // justifies word to center of screen
   scrollViewContent: {
@@ -82,13 +83,10 @@ export const baseStyles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   word: {
-    fontSize: 32,
     letterSpacing: 8,
     fontWeight: 'bold',
     color: colors.text.primary,
-    includeFontPadding: false,
-    textAlignVertical: 'center',
-    flexShrink: 0,
+    textAlign: 'center',
   },
   keyboardContainer: {
     flexDirection: 'row',
