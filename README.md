@@ -23,30 +23,31 @@ I want to make a simple but addictive game that inspires curiosity while also of
 
 ## General
 
-- app colour scheme
-- New app name
-- Documentation improvement to code
-- additional game modes frameworks
-  -Synonyms/antonyms game
-  -Spill and spell (try to spell the words as fast as you can from assortment of letters)
-  -guess the definition
-  -fridge screen (make a sentence from assortment of words)
-- high scores and score tracking
-- navigation tab options
-- profile system
+- [] app colour scheme
+- [] New app name
+- [] Documentation improvement to code
+- [] additional game modes frameworks
+  - [] Synonyms/antonyms game
+  - [] Spill and spell (try to spell the words as fast as you can from assortment of letters)
+  - [] guess the definition
+  - [] fridge screen (make a sentence from assortment of words)
+- [] high scores and score tracking
+- [] navigation tab options
+- [] profile system
+- [] revamped CSS styling
 
 #### Hangman-To Do
 
-- fixing word placement
-- modify quick and marathon mode rules
-- add phonetics and audio to word summary screen
-- add sound effects for letter selection, level completion, etc
-- add animations
-- add score tracker and high score feature
-- build backup offline word database for offline play
-- modify word generator to sanitize words (inappropriate words, words without definitions, lowering font size for larger words so it fits on the screen)
-- add #letters QOL
-- Add point system with shop for upgrades(extra lives, letter erasers, free letter)
+- [] fixing word placement
+- [] modify quick and marathon mode rules
+- [] add phonetics and audio to word summary screen
+- [] add sound effects for letter selection, level completion, etc
+- [] add animations
+- [] add score tracker and high score feature
+- [] build backup offline word database for offline play
+- [] modify word generator to sanitize words (inappropriate words, words without definitions, lowering font size for larger words so it fits on the screen)
+- [] add #letters QOL
+- [] Add point system with shop for upgrades(extra lives, letter erasers, free letter)
 
 ## Technologies Used
 
