@@ -6,8 +6,7 @@ import { baseStyles } from '../src/styles';
 export default function SettingsScreen() {
     return (
         <View style={baseStyles.container}>
-            <Text>Settings Screen
-            </Text>
+            <Text>Settings Screen</Text>
         </View>
     );
 }
