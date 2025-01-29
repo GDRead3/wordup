@@ -4,7 +4,7 @@ A React Native mobile game application focused on vocabulary enhancement through
 
 # Motivation
 
-I want to make a simple but addictive game that inspires curiosity while also offering value to the players. Learning while having fun is the best way to learn!
+I want to make a simple but addictive game that inspires curiosity while also offering value to the players. Learning while having fun is the best way to learn! This is also my first solo project using this language and i am still learning the platform. I want to expand this app also so I can expand my full-stack development knoiwledge.
 
 ## Features
 
