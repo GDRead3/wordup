@@ -265,7 +265,8 @@ export const BACKUPWORDS = [
     'ANSIBLE',
     'TERRAFORM',
     'VAULT',
-    'CONSUL'
+    'CONSUL',
+    'DUE'
   ];
   
   // You can add more categorized words later
