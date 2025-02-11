@@ -22,30 +22,28 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
   const calculateWordDisplay = () => {
     const screenWidth = Dimensions.get('window').width;
     const wordLength = gameState.currentWord.length;
-    const horizontalPadding = 32
-
+    const horizontalPadding = 32;
+    const minFontSize = 14;
+    
     let letterSpacing = 6;
     let fontSize = 32;
     
-    const availableWidth = screenWidth - horizontalPadding; //calculates how much width is availalbe for the word to fit on
-
-    // Calculate space needed with default values
-      let totalWidth = (wordLength * fontSize) + ((wordLength - 1) * letterSpacing);
-
-    // If word is too long, adjust both font size and spacing
-     if (totalWidth > availableWidth) {
-    // First reduce letter spacing for long words
-    letterSpacing = Math.max(2, Math.floor(availableWidth / wordLength / 4));
-    totalWidth = (wordLength * fontSize) + ((wordLength - 1) * letterSpacing);
+    const availableWidth = screenWidth - (horizontalPadding * 2);
     
-    // If still too big, reduce font size
-    if (totalWidth > availableWidth) {
-      fontSize = Math.max(16, Math.floor((availableWidth - (wordLength - 1) * letterSpacing) / wordLength));
+    // Use 'W' as a reference character since it's typically one of the widest
+    // This ensures we have enough space even when underscores are replaced with letters
+    let totalWidth = (wordLength * fontSize * 1.2) + ((wordLength - 1) * letterSpacing);
+    
+    while (totalWidth > availableWidth && (fontSize > minFontSize || letterSpacing > 2)) {
+      if (letterSpacing > 2) {
+        letterSpacing--;
+      } else if (fontSize > minFontSize) {
+        fontSize--;
+      }
+      totalWidth = (wordLength * fontSize * 1.2) + ((wordLength - 1) * letterSpacing);
     }
-  }
-
-    return {fontSize, letterSpacing};
-
+    
+    return { fontSize, letterSpacing };
   };
 
   const { fontSize, letterSpacing } = calculateWordDisplay();
@@ -178,17 +176,23 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.scrollViewContent}
+            >
+              <Text 
+                style={[
+                  baseStyles.word,
+                  {
+                    fontSize: gameState.displaySettings?.fontSize ?? calculateWordDisplay().fontSize,
+                    letterSpacing: gameState.displaySettings?.letterSpacing ?? calculateWordDisplay().letterSpacing,
+                    flexShrink: 1,
+                    flexWrap: 'nowrap',
+                    textAlign: 'center',
+                  }
+                ]}
+                numberOfLines={1}
               >
-            <Text style={[
-              baseStyles.word,
-                {
-                  fontSize: gameState.displaySettings?.fontSize ?? calculateWordDisplay().fontSize,
-                  letterSpacing: gameState.displaySettings?.letterSpacing ?? calculateWordDisplay().letterSpacing
-                }
-                ]}>
                 {displayWord()}
               </Text>
-             </ScrollView>
+            </ScrollView>
           </View>
 
           <Keyboard
@@ -215,5 +219,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+    flexWrap: 'nowrap',  // Prevent wrapping
   },
 });
