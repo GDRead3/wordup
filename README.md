@@ -38,16 +38,16 @@ I want to make a simple but addictive game that inspires curiosity while also of
 
 #### Hangman-To Do
 
-- [] fixing word placement
+- [x] fixing word placement
   - [x] add space calculator function
-  - [] add check and dynamically re-adjusts words to fit the screen as letters are guessed
+  - [x] add check and dynamically re-adjusts words to fit the screen as letters are guessed
 - [x] modify quick and marathon mode rules
 - [] add phonetics and audio to word summary screen
 - [] add sound effects for letter selection, level completion, etc
 - [] add animations
 - [] add score tracker and high score feature
 - [] build backup offline word database for offline play
-- [] modify word generator to sanitize words (inappropriate words, words without definitions, lowering font size for larger words so it fits on the screen)
+- [] modify word generator to sanitize words (inappropriate words, words without definitions)
 - [] add #letters QOL
 - [] Add point system with shop for upgrades(extra lives, letter erasers, free letter)
 
