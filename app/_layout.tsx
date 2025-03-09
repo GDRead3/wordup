@@ -30,11 +30,11 @@ export default function AppLayout() {
           }}
         />
         <Tabs.Screen
-          name="hangman" //Quick Select for Hangman gmae
+          name="gameSelect" // Game selection screen
           options={{
-            title: 'Hangman',
+            title: 'Games',
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="human-handsdown" color={color} size={26} />
+              <MaterialCommunityIcons name="gamepad-variant" color={color} size={26} />
             ),
           }}
         />
