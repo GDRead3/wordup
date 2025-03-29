@@ -81,6 +81,7 @@ export default function GameBoard({ gameState, setGameState, onGameOver }: GameB
 
       // Check if the game is lost
       if (newLives <= 0 && prev.mode !== 'casual') {
+        console.log('Game lost in mode:', prev.mode, 'with lives:', newLives);
         setTimeout(onGameOver, 1000);
         return {
           ...prev,
