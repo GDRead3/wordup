@@ -25,13 +25,15 @@ I want to make a simple but addictive game that inspires curiosity while also of
 
 - [] app colour scheme
 - [] New app name
+- [x] base main menu facelift
 - [] Documentation improvement to code
 - [] additional game modes frameworks
   - [] Synonyms/antonyms game
   - [] Spill and spell (try to spell as many words as fast as you can from assortment of letters)
   - [] guess the definition
   - [] fridge screen (make a sentence from assortment of words)
-- [] high scores and score tracking
+  - [] starting point : come up with words that already start or end with a combo of letters
+- [x] high scores and score tracking
 - [] navigation tab options
 - [] profile system
 - [] revamped CSS styling
