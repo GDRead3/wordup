@@ -19,16 +19,16 @@ export default function ScoresScreen() {
   return (
     <View style={styles.container}>
       <Title style={styles.title}>High Scores</Title>
-      <DataTable>
+      <DataTable style={styles.table}>
         <DataTable.Header>
-          <DataTable.Title>Theme</DataTable.Title>
-          <DataTable.Title numeric>Score</DataTable.Title>
+          <DataTable.Title textStyle={styles.cell}>Theme</DataTable.Title>
+          <DataTable.Title numeric textStyle={styles.cell}>Score</DataTable.Title>
         </DataTable.Header>
 
         {scores.map((item, index) => (
           <DataTable.Row key={index}>
-            <DataTable.Cell>{item.theme}</DataTable.Cell>
-            <DataTable.Cell numeric>{item.score}</DataTable.Cell>
+            <DataTable.Cell textStyle={styles.cell}>{item.theme}</DataTable.Cell>
+            <DataTable.Cell numeric textStyle={styles.cell}>{item.score}</DataTable.Cell>
           </DataTable.Row>
         ))}
       </DataTable>
@@ -48,4 +48,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'black',
   },
+  table: {
+    backgroundColor: '#ffffff',
+  },
+  cell: {
+    color: 'black',
+  }
 });
