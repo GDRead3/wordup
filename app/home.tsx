@@ -16,15 +16,45 @@ export default function HomeScreen() {
             Choose from different themes and challenge yourself!
           </Paragraph>
         </Card.Content>
-        <Card.Actions>
-          <Button 
-            mode="contained" 
-            onPress={() => router.push('/hangman')}
-          >
-            Start Playing
-          </Button>
-        </Card.Actions>
       </Card>
+
+      <View style={styles.menuContainer}>
+        <Button 
+          mode="contained"
+          style={styles.menuButton}
+          icon="gamepad-variant"
+          onPress={() => router.push('/gameSelect')}
+        >
+          Select Games
+        </Button>
+
+        <Button 
+          mode="contained"
+          style={styles.menuButton}
+          icon="trophy"
+          onPress={() => router.push('/scores')}
+        >
+          High Scores
+        </Button>
+
+        <Button 
+          mode="contained"
+          style={styles.menuButton}
+          icon="cog"
+          onPress={() => router.push('/settings')}
+        >
+          Settings
+        </Button>
+
+        <Button 
+          mode="contained"
+          style={[styles.menuButton, styles.quitButton]}
+          icon="exit-to-app"
+          onPress={() => router.back()}
+        >
+          Quit - currently causes a crash
+        </Button>
+      </View>
     </View>
   );
 }
@@ -38,18 +68,33 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     marginVertical: 20,
-    fontSize: 24,
-    color: 'black'
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#000000'
   },
   card: {
     marginVertical: 10,
     backgroundColor: '#09E85E',
-    color: '#000000'
   },
   modeCardTitle: {
-    color: '#000000'
+    color: '#000000',
+    fontSize: 24,
   },
   modeCardText: {
-    color: '#000000'
+    color: '#000000',
+    fontSize: 16,
+    marginTop: 8,
+  },
+  menuContainer: {
+    marginTop: 20,
+    gap: 12,
+  },
+  menuButton: {
+    padding: 8,
+    borderRadius: 8,
+  },
+  quitButton: {
+    backgroundColor: '#ff4444',
+    marginTop: 20,
   },
 });

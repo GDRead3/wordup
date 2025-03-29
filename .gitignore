@@ -35,4 +35,8 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# IDE - IntelliJ/WebStorm/Android Studio
+.idea/
+*.iml
+
 app-example
