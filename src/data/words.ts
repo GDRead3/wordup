@@ -269,7 +269,7 @@ export const BACKUPWORDS = [
     'DUE'
   ];
   
-  // You can add more categorized words later
+  // add more categorized words later
   export const CATEGORIZED_WORDS = {
     animals: ['ELEPHANT', 'GIRAFFE', 'PENGUIN'],
     technology: ['COMPUTER', 'INTERNET', 'SOFTWARE'],
