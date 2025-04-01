@@ -19,6 +19,8 @@ I want to make a simple but addictive game that inspires curiosity while also of
 - On-screen keyboard with guessed letters tracking
 - definitions of words on either level complete or game over
 
+
+
 ## To do list
 
 ## General
@@ -52,6 +54,16 @@ I want to make a simple but addictive game that inspires curiosity while also of
 - [] modify word generator to sanitize words (inappropriate words, words without definitions)
 - [] add #letters QOL
 - [] Add point system with shop for upgrades(extra lives, letter erasers, free letter)
+
+#### Wordbuilder-To Do
+
+- [] gameboard creation
+- [] sanitization logic
+- [] timer
+- [] success dialog
+- [] word input
+- [] Word list logic
+- [] word validation logic
 
 ## Technologies Used
 
