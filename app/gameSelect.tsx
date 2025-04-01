@@ -46,6 +46,13 @@ export default function GameSelectScreen() {
             color: '#FB5607',
             comingSoon: true,
         },
+        {
+            id: 'wordbuilder',
+            title: 'Word Builder',
+            description: 'Create as many words as possible using given letters. Race against time to maximize your score!',
+            icon: 'text-box-plus-outline',
+            color: '#00B4D8',
+        },
     ];
 
     const navigateToGame = (gameId: string) => {
